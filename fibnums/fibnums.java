@@ -2,11 +2,13 @@
 //2/13/18
 //Fibonacci numbers Uva challenge
 
+package fibnums;
+
 import java.util.Scanner;
 import java.math.BigInteger;
 import java.util.Vector;
 
-public class Fibnums {
+class Main {
       public static void main(String[] args){
               Scanner sc = new Scanner(System.in);
               while(sc.hasNextLine()){
@@ -24,14 +26,19 @@ public class Fibnums {
                       fibonacci.add(ones);
                       fibonacci.addElement(ones);
 
-                      while(fibonacci.lastElement().compareTo(second) < 0){
+                      while(fibonacci.lastElement().compareTo(second) <= 0){
                               BigInteger last_elem = fibonacci.lastElement();
                               BigInteger second_last = fibonacci.elementAt(fibonacci.size()-2);
                               fibonacci.addElement(last_elem.add(second_last));
                               //System.out.println(fibonacci.lastElement());
                       }
                       
+                      
                       int count = 0;
+                      if(input[0].equals("1") || input[0].equals("0")) {
+                    	  count--;
+                      }
+                      
                       for(int i = 0; fibonacci.get(i).compareTo(second) <= 0; i++){
                               if(fibonacci.get(i).compareTo(first) >= 0)
                                       count++;
@@ -42,4 +49,3 @@ public class Fibnums {
               sc.close();
       } //ends main
 }//ends fib class
-
